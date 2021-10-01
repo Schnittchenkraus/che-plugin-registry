@@ -18,7 +18,8 @@ spec:
       name: vscode-python
       volumes:
         - name: venv
-          mountPath: /home/theia/.venv
+          mountPath: /home/theia/lib
+#           mountPath: /home/theia/.venv
         - name: error_vol
           mountPath: /quatsch/quatsch/quatsch
       memoryLimit: 512Mi
