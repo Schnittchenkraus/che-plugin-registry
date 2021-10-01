@@ -19,6 +19,8 @@ spec:
       volumes:
         - name: venv
           mountPath: /home/theia/.venv
+        - name: error_vol
+          mountPath: /quatsch/quatsch/quatsch
       memoryLimit: 512Mi
       cpuRequest: 30m
       cpuLimit: 500m
