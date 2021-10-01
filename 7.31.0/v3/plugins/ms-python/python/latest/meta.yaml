@@ -23,4 +23,4 @@ spec:
       cpuRequest: 30m
       cpuLimit: 500m
   extensions:
-    - 'http://plugin-registry.openshift-workspaces.svc:8080/v3/resources/github.com/redhat-developer/codeready-workspaces-vscode-extensions/releases/download/vfa62888/vscode-python-2020.7.94776.vsix'
+    - 'http://plugin-registry.openshift-workspaces.svc:8080/v3/resources/github_com/redhat-developer/codeready-workspaces-vscode-extensions/releases/download/vfa62888/vscode-python-2020.7.94776.vsix
