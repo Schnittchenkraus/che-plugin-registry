@@ -13,15 +13,12 @@ firstPublicationDate: '2020-07-16'
 latestUpdateDate: '2021-05-27'
 spec:
   containers:
-#     - image: 'quay.io/eclipse/che-plugin-sidecar@sha256:7919d965a77f1ec969e073a1cc86686f92e99fc53a0b0c8d2eb13aea61c63467'
-    - image: 'quay.io/eclipse/che-plugin-sidecar:python-78cd6a9'
+    - image: 'quay.io/eclipse/che-plugin-sidecar@sha256:7919d965a77f1ec969e073a1cc86686f92e99fc53a0b0c8d2eb13aea61c63467'
+#     - image: 'quay.io/eclipse/che-plugin-sidecar:python-78cd6a9'
       name: vscode-python
       volumes:
         - name: venv
-          mountPath: /home/theia/lib
-#           mountPath: /home/theia/.venv
-        - name: error_vol
-          mountPath: /quatsch/quatsch/quatsch
+          mountPath: /home/theia/.venv
       memoryLimit: 512Mi
       cpuRequest: 30m
       cpuLimit: 500m
