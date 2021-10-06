@@ -96,6 +96,8 @@ spec:
           mountPath: /plugins
         - name: theia-local
           mountPath: /home/theia/.theia
+        - name: venv
+          mountPath: /home/theia/.venv
       name: theia-ide
       ports:
         - exposedPort: 3100
