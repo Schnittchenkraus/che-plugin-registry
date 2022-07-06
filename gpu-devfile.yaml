@@ -15,7 +15,7 @@ components:
       che-theia.eclipse.org/vscode-preferences:
         python.globalModuleInstallation: true
     kubernetes:
-      uri: 'https://raw.githubusercontent.com/Schnittchenkraus/che-plugin-registry/main/gpu-container.yaml'
+      uri: 'https://raw.githubusercontent.com/Schnittchenkraus/che-plugin-registry/main/gpu-container2.yaml'
     name: python
   - name: venv
     volume:
