@@ -1,0 +1,31 @@
+schemaVersion: 2.1.0
+metadata:
+  name: python-hello-world
+  namespace: s224549-devspaces-v2n6wf
+projects:
+  - git:
+      remotes:
+        origin: 'https://github.com/Apress/repo-with-large-file-storage.git'
+    name: repo-with-large-file-storage
+components:
+  - attributes:
+      app.kubernetes.io/name: python
+      che-theia.eclipse.org/vscode-extensions:
+        - 'relative:extension/resources/github_com/microsoft/vscode-python/releases/download/2020_7_94776/ms-python-release.vsix'
+      che-theia.eclipse.org/vscode-preferences:
+        python.globalModuleInstallation: true
+    kubernetes:
+      uri: 'https://raw.githubusercontent.com/Schnittchenkraus/che-plugin-registry/main/gpu-container.yaml'
+    name: python
+  - name: venv
+    volume:
+      size: 1G
+commands:
+  - exec:
+      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
+      component: python
+      group:
+        kind: run
+      label: Run the application
+      workingDir: '${PROJECTS_ROOT}/python-hello-world'
+    id: run
