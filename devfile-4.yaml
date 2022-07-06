@@ -15,14 +15,14 @@ components:
             name: python-inner
           spec:
             containers:
-              - name: python-inner
-                image: quay.io/manhah/license_plate_demo_gpu:latest
-                resources:
-                  limits:
-                    memory: 4Gi
-                    nvidia.com/gpu: 1 # limiting to 1 GPU
-                  requests:
-                    nvidia.com/gpu: 1 # requesting 1 GPU
+              name: python-inner
+              image: quay.io/manhah/license_plate_demo_gpu:latest
+              resources:
+                limits:
+                  memory: 4Gi
+                  nvidia.com/gpu: 1 # limiting to 1 GPU
+                requests:
+                  nvidia.com/gpu: 1 # requesting 1 GPU
             nodeSelector:
               nvidia.com/gpu.present: true
       name: python
