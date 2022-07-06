@@ -7,7 +7,8 @@ projects:
     zip:
       location: 'http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip'
 components:
-  - attributes:
+  - name: test
+    attributes:
       app.kubernetes.io/name: python
       che-theia.eclipse.org/vscode-extensions:
         - 'relative:extension/resources/github_com/microsoft/vscode-python/releases/download/2020_7_94776/ms-python-release.vsix'
