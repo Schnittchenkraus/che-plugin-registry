@@ -1,0 +1,39 @@
+schemaVersion: 2.1.0
+metadata:
+  name: python-hello-world
+  namespace: s224549-devspaces-v2n6wf
+projects:
+  - name: python-hello-world
+    zip:
+      location: 'http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip'
+components:
+- kubernetes:
+    inlined: |
+      apiVersion: redis.redis.opstreelabs.in/v1beta1
+      kind: Redis
+      metadata:
+        name: my-redis-service
+      spec:
+        kubernetesConfig:
+          image: quay.io/opstree/redis:v6.2.5
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 101m
+              memory: 128Mi
+            requests:
+              cpu: 101m
+              memory: 128Mi
+          serviceType: ClusterIP
+        redisExporter:
+          enabled: false
+          image: quay.io/opstree/redis-exporter:1.0
+        storage:
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+              - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
+  name: my-redis-service
