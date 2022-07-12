@@ -5,7 +5,8 @@ metadata:
 projects:
   - name: mlperf
     git:
-      location: 'https://github.com/mlcommons/training'
+      remotes:
+        origin: "https://github.com/mlcommons/training"
 components:
   - attributes:
       app.kubernetes.io/name: python
