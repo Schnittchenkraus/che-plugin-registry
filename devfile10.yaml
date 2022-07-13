@@ -1,0 +1,43 @@
+schemaVersion: 2.1.0
+metadata:
+  name: python-hello-world
+projects:
+  - name: python-hello-world
+    zip:
+      location: 'http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip'
+components:
+  - kubernetes:
+      inlined: |
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: python
+        spec:
+          containers:
+            - name: python
+              image: quay.io/manhah/license_plate_demo_gpu:latest
+              resources:
+                limits:
+                  memory: 4Gi
+                  #nvidia.com/gpu: 1 # limiting to 1 GPU
+                  nvidia.com/mig-2g.10gb: 1
+                requests:
+                  #nvidia.com/gpu: 1 # requesting 1 GPU
+                  nvidia.com/mig-2g.10gb: 1
+          nodeSelector:
+            nvidia.com/gpu.present: true
+        mountSources: true      
+        alias: python/python 
+    name: python
+  - name: venv
+    volume:
+      size: 1G
+commands:
+  - exec:
+      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
+      component: python
+      group:
+        kind: run
+      label: Run the application
+      workingDir: '${PROJECTS_ROOT}/python-hello-world'
+    id: run
